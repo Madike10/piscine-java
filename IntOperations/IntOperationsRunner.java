@@ -1,4 +1,4 @@
-// package IntOperations;
+package IntOperations;
 
 public class IntOperationsRunner {
     
