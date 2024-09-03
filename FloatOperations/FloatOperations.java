@@ -1,4 +1,4 @@
-// package FloatOperations;
+package FloatOperations;
 
 public class FloatOperations {
     public static float addTwoFloats(float a, float b) {

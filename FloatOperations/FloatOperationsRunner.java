@@ -1,4 +1,4 @@
-// package FloatOperations;
+package FloatOperations;
 
 public class FloatOperationsRunner {
     public static void main(String[] args) {
