@@ -1,4 +1,4 @@
-// package IsEven;
+package IsEven;
 
 public class IsEvenRunner {
 
