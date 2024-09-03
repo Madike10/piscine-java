@@ -1,4 +1,4 @@
-package Chifoumi;
+// package Chifoumi;
 
 public class ChifoumiRunner {
     public static void main(String[] args) {
