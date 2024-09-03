@@ -1,4 +1,4 @@
-package StringConcat;
+// package StringConcat;
 
 public class StringConcat{
     public static String concat(String s1, String s2){
