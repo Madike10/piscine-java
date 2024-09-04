@@ -1,43 +1,40 @@
-
 import java.io.*;
+
 public class Capitalize {
     public static void capitalize(String[] args) throws IOException {
-        if (args.length < 2) {
-            System.err.println("Usage: Capitalize <input_file> <output_file>");
+        if (args.length != 2) {
             return;
         }
+        String inputPath = args[0];
+        String outputPath = args[1];
 
-        String inputFile = args[0];
-        String outputFile = args[1];
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-             BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
+        try (
+                BufferedReader br = new BufferedReader(new FileReader(inputPath));
+                BufferedWriter bw = new BufferedWriter(new FileWriter(outputPath))
+        ) {
             String line;
-            while ((line = reader.readLine()) != null) {
-                writer.write(capitalizeWords(line.trim()));
-                writer.newLine();
+            while ((line = br.readLine()) != null) {
+                // Capitalize the first letter of each word
+                String capitalizedLine = capitalizeWords(line);
+                bw.write(capitalizedLine);
+                bw.newLine(); // Add a new line after writing each line
             }
-        } catch (IOException e) {
-            System.err.println("Error processing files: " + e.getMessage());
         }
     }
 
-    public static String capitalizeWords(String str) {
-        StringBuilder sb = new StringBuilder();
-        boolean capitalizeNextWord = true;
+    // Helper function to capitalize the first letter of each word in a string
+    private static String capitalizeWords(String input) {
+        String[] words = input.split(" ");
+        StringBuilder capitalized = new StringBuilder();
 
-        for (char c : str.toCharArray()) {
-            if (Character.isWhitespace(c)) {
-                // Ignorer les espaces supplémentaires
-                continue;
-            } else if (capitalizeNextWord && Character.isLetter(c)) {
-                sb.append(Character.toUpperCase(c));
-                capitalizeNextWord = false;
-            } else {
-                sb.append(Character.toLowerCase(c));
+        for (String word : words) {
+            if (!word.isEmpty()) {
+                capitalized.append(Character.toUpperCase(word.charAt(0)))
+                        .append(word.substring(1).toLowerCase())
+                        .append(" ");
             }
         }
 
-        return sb.toString().trim(); // Supprimer les espaces en fin de ligne
+        return capitalized.toString().trim(); // Remove the last extra space
     }
 }
