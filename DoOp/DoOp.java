@@ -6,6 +6,12 @@ public class DoOp {
         if (args.length != 3){
             return "it depend on the input.";
         }
+        if (!args[1].equals("+") && !args[1].equals("-") && !args[1].equals("%")){
+            return "Error";
+        }
+        if (args.length == 0){
+            return "Error";
+        }
         if (args[1] == "+"){
             result = Integer.parseInt(args[0]) + Integer.parseInt(args[2]);
         }else if (args[1] == "-"){
