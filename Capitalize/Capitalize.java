@@ -1,4 +1,4 @@
-package Capitalize;
+// package Capitalize;
 
 import java.io.*;
 
