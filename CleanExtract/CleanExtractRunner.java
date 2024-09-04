@@ -1,4 +1,4 @@
-// package CleanExtract;
+package CleanExtract;
 
 public class CleanExtractRunner {
     public static void main(String[] args) {
