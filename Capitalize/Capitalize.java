@@ -20,9 +20,9 @@ public class Capitalize {
             String line;
             while ((line = reader.readLine()) != null) {
                 // Capitalise la ligne en mettant toutes les lettres en majuscules
-                String capitalizedLine = line.toUpperCase();
+                String capitalizedLine = line.toUpperCase().trim();
                 writer.write(capitalizedLine);
-                // writer.newLine(); // Ajoute une nouvelle ligne
+                writer.newLine(); // Ajoute une nouvelle ligne
             }
         } catch (FileNotFoundException e) {
             System.err.println("Fichier non trouvé : " + e.getMessage());
