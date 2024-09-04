@@ -28,7 +28,8 @@ public class DoOp {
                     return "Error";
                 }
             }
-            return String.valueOf(result);
+            return "Error";
+
         }
         return "Error";
     }
