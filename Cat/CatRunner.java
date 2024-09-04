@@ -1,5 +1,4 @@
 package Cat;
-
 import java.io.*;
 
 public class CatRunner {
