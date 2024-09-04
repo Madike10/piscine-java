@@ -16,7 +16,8 @@ public class Capitalize {
                 BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
 
             String line;
-            // Read each line, convert it to uppercase, and write it to the output file
+            // Read each line from the input file, capitalize it, and write it to the output
+            // file
             while ((line = reader.readLine()) != null) {
                 writer.write(line.toUpperCase());
                 writer.newLine(); // Write a new line after each line
