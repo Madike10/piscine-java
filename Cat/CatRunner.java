@@ -1,5 +1,5 @@
-package Cat;
-// import java.io.*;
+// package Cat;
+import java.io.*;
 
 public class CatRunner {
     public static void main(String[] args) throws IOException {
