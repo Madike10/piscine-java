@@ -1,18 +1,28 @@
 // package SortArgs;
+
 public class SortArgs {
     public static void sort(String[] args) {
-        for (int i = 0; i < args.length - 1; i++) {
-            for (int j = 0; j < args.length - i - 1; j++) {
-                if (Integer.parseInt(args[j]) > Integer.parseInt(args[j + 1])) {
-                    String temp = args[j];
-                    args[j] = args[j + 1];
-                    args[j + 1] = temp;
-                }
-            }
+        int[] sortedIndices = new int[args.length];
+        for (int i = 0; i < args.length; i++) {
+            sortedIndices[i] = i;
         }
 
-        for (String arg : args) {
-            System.out.print(arg + " ");
+        boolean swapped;
+        do {
+            swapped = false;
+            for (int i = 0; i < args.length - 1; i++) {
+                int j = sortedIndices[i];
+                int k = sortedIndices[i + 1];
+                if (Integer.parseInt(args[j]) > Integer.parseInt(args[k])) {
+                    swapped = true;
+                    sortedIndices[i] = k;
+                    sortedIndices[i + 1] = j;
+                }
+            }
+        } while (swapped);
+
+        for (int i : sortedIndices) {
+            System.out.print(args[i] + " ");
         }
         System.out.println();
     }
