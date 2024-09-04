@@ -9,22 +9,21 @@ public class Capitalize {
             return;
         }
 
-        String inputFileName = args[0];
-        String outputFileName = args[1];
+        String inputFile = args[0];
+        String outputFile = args[1];
+        BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile));
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(inputFileName));
-             BufferedWriter writer = new BufferedWriter(new FileWriter(outputFileName))) {
-
-            String line;
-            while ((line = reader.readLine()) != null) {
-                writer.write(capitalizeLine(line));
-                writer.newLine();
-            }
-
+        String line;
+        while ((line = reader.readLine())!= null) {
+            String capitalizedLine = (line.toUpperCase().trim());
+            writer.write(capitalizedLine);
+            writer.newLine();
         }
-    }
-    public static String capitalizeLine(String line) {
-        return line.trim().toUpperCase();
+
+        reader.close();
+        writer.close();
+
     }
         
 }
