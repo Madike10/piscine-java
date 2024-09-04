@@ -21,6 +21,12 @@ public class DoOp {
                 }
             } else if (args[1] == "*") {
                 result = Integer.parseInt(args[0]) * Integer.parseInt(args[2]);
+            }else if (args[1] == "/"){
+                if (args[2] != "0") {
+                    result = Integer.parseInt(args[0]) / Integer.parseInt(args[2]);
+                } else {
+                    return "Error";
+                }
             }
             return String.valueOf(result);
         }
