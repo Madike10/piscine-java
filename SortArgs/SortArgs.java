@@ -1,28 +1,22 @@
 // package SortArgs;
+import java.util.Arrays;
 
 public class SortArgs {
     public static void sort(String[] args) {
-        int[] sortedIndices = new int[args.length];
-        for (int i = 0; i < args.length; i++) {
-            sortedIndices[i] = i;
-        }
+        // Convert a String array to an int array
+        int[] numbers = Arrays.stream(args)
+                .mapToInt(Integer::parseInt)
+                .toArray();
 
-        boolean swapped;
-        do {
-            swapped = false;
-            for (int i = 0; i < args.length - 1; i++) {
-                int j = sortedIndices[i];
-                int k = sortedIndices[i + 1];
-                if (Integer.parseInt(args[j]) > Integer.parseInt(args[k])) {
-                    swapped = true;
-                    sortedIndices[i] = k;
-                    sortedIndices[i + 1] = j;
-                }
+        // Sort the int array
+        Arrays.sort(numbers);
+
+        // Print sorted numbers
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.print(numbers[i]);
+            if (i < numbers.length - 1) {
+                System.out.print(" ");
             }
-        } while (swapped);
-
-        for (int i : sortedIndices) {
-            System.out.print(args[i] + " ");
         }
         System.out.println();
     }
