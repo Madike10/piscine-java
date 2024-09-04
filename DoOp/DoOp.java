@@ -22,6 +22,8 @@ public class DoOp {
             }else{
                 return "Error";
             }
+        }else if (args[1] == "*"){
+            result = Integer.parseInt(args[0]) * Integer.parseInt(args[2]);
         }
         return String.valueOf(result);
     }
