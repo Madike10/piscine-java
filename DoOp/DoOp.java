@@ -7,9 +7,7 @@ public class DoOp {
             return "Error";
         }
         if (args.length == 3){
-            if (args.length == 0) {
-                return "Error";
-            } else if (args[1] == "+") {
+            if (args[1] == "+") {
                 result = Integer.parseInt(args[0]) + Integer.parseInt(args[2]);
             } else if (args[1] == "-") {
                 result = Integer.parseInt(args[0]) - Integer.parseInt(args[2]);
@@ -27,9 +25,10 @@ public class DoOp {
                 } else {
                     return "Error";
                 }
+            }else{
+                return "Error";
             }
-            return "Error";
-
+            return String.valueOf(result);
         }
         return "Error";
     }
