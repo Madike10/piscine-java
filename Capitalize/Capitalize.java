@@ -12,16 +12,22 @@ public class Capitalize {
         String inputFile = args[0];
         String outputFile = args[1];
 
+        // Utilisation de try-with-resources pour gérer automatiquement la fermeture des
+        // flux
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-             BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
+                BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
 
             String line;
-            // Lire chaque ligne, la convertir en majuscules, et l'écrire dans le fichier de sortie
             while ((line = reader.readLine()) != null) {
-                writer.write(line.toUpperCase());
-                writer.newLine(); // Écrire une nouvelle ligne après chaque ligne
+                // Capitalise la ligne en mettant toutes les lettres en majuscules
+                String capitalizedLine = line.toUpperCase();
+                writer.write(capitalizedLine);
+                // writer.newLine(); // Ajoute une nouvelle ligne
             }
+        } catch (FileNotFoundException e) {
+            System.err.println("Fichier non trouvé : " + e.getMessage());
+        } catch (IOException e) {
+            System.err.println("Erreur lors de la lecture/écriture du fichier : " + e.getMessage());
         }
     }
-
 }
