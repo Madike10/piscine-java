@@ -1,3 +1,5 @@
+// package FileManager;
+
 import java.io.*;
 import java.nio.file.*;
 
@@ -23,7 +25,7 @@ public class FileManager {
         return content.toString();
     }
 
-    public static void deleteFile(String fileName) {
+        public static void deleteFile(String fileName) {
         try {
             Files.delete(Paths.get(fileName));
         } catch (IOException e) {
