@@ -5,34 +5,51 @@ import java.nio.file.*;
 
 public class FileManager {
     public static void createFile(String fileName, String content) throws IOException {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            writer.write(content);
+        if (fileName == null || fileName.isEmpty()) {
+            throw new IllegalArgumentException("File name cannot be null or empty");
         }
-    }
 
-    public static String getContentFile(String fileName) throws IOException {
-        if (fileName == null){
-            return null;
-        }
-        StringBuilder content = new StringBuilder();
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                content.append(line).append(System.lineSeparator());
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter(fileName);
+            writer.write(content);
+        } finally {
+            if (writer != null) {
+                writer.close();
             }
         }
-        // Supprime le dernier saut de ligne s'il existe
-        if (content.length() > 0) {
-            content.setLength(content.length() - System.lineSeparator().length());
-        }
-        return content.toString();
     }
 
-        public static void deleteFile(String fileName) {
+    // Function to retrieve and return the content of the specified file
+    public static String getContentFile(String fileName) throws IOException {
+        if (fileName == null || fileName.isEmpty()) {
+            throw new IllegalArgumentException("File name cannot be null or empty");
+        }
+
         try {
-            Files.delete(Paths.get(fileName));
-        } catch (IOException e) {
-            System.err.println("Erreur lors de la suppression du fichier : " + e.getMessage());
+            byte[] fileBytes = Files.readAllBytes(Paths.get(fileName));
+            if (fileBytes.length == 0) {
+                throw new IOException("File is empty");
+            }
+            return new String(fileBytes);
+        } catch (NoSuchFileException e) {
+            throw new IOException("File not found: " + fileName, e);
+        }
+    }
+
+    // Function to delete the specified file
+    public static void deleteFile(String fileName) {
+        if (fileName == null || fileName.isEmpty()) {
+            throw new IllegalArgumentException("File name cannot be null or empty");
+        }
+
+        File file = new File(fileName);
+        if (file.exists()) {
+            if (!file.delete()) {
+                System.err.println("Failed to delete the file: " + fileName);
+            }
+        } else {
+            System.err.println("File does not exist: " + fileName);
         }
     }
 }
