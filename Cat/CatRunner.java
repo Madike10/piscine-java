@@ -1,5 +1,5 @@
-// package Cat;
-import java.io.*;
+package Cat;
+// import java.io.*;
 
 public class CatRunner {
     public static void main(String[] args) throws IOException {
@@ -11,6 +11,7 @@ public class CatRunner {
 
         Cat.cat(new String[]{"input.txt"});
         String output = outputStream.toString();
+        System.out.println(output);
         // Reset out to stdout
         System.setOut(stdout);
         System.out.println(output.equals("test input file\n"));
