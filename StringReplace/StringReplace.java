@@ -1,4 +1,4 @@
-// package StringReplace;
+package StringReplace;
 
 public class StringReplace {
     public static String replace(String s, char target, char replacement) {
