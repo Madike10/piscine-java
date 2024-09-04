@@ -1,4 +1,4 @@
-// package CatInFile;
+package CatInFile;
 
 import java.io.*;
 import java.nio.file.Files;
