@@ -16,7 +16,7 @@ public class Capitalize {
              BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                writer.write(capitalizeString(line));
+                writer.write((line.toUpperCase()));
                 writer.newLine();
             }
         } catch (IOException e) {
