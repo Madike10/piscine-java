@@ -11,6 +11,9 @@ public class FileManager {
     }
 
     public static String getContentFile(String fileName) throws IOException {
+        if (fileName == null){
+            return null;
+        }
         StringBuilder content = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
