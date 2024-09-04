@@ -6,7 +6,7 @@ public class DoOp {
         if (args == null || args.length < 3) {
             return "Error";
         }
-        if (args.length == 3){
+        if (args.length == 3) {
             if (args[1] == "+") {
                 result = Integer.parseInt(args[0]) + Integer.parseInt(args[2]);
             } else if (args[1] == "-") {
@@ -19,13 +19,13 @@ public class DoOp {
                 }
             } else if (args[1] == "*") {
                 result = Integer.parseInt(args[0]) * Integer.parseInt(args[2]);
-            }else if (args[1] == "/"){
+            } else if (args[1] == "/") {
                 if (args[2] != "0") {
                     result = Integer.parseInt(args[0]) / Integer.parseInt(args[2]);
                 } else {
                     return "Error";
                 }
-            }else{
+            } else {
                 return "Error";
             }
             return String.valueOf(result);
