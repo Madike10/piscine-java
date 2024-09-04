@@ -5,29 +5,26 @@ import java.io.*;
 public class Capitalize {
     public static void capitalize(String[] args) throws IOException {
         if (args.length < 2) {
-            System.err.println("Usage: java Capitalize <inputFile> <outputFile>");
+            System.err.println("Usage: java Capitalize <input_file> <output_file>");
             return;
         }
 
-        String inputFile = args[0];
-        String outputFile = args[1];
+        String inputFileName = args[0];
+        String outputFileName = args[1];
 
-        // Utilisation de try-with-resources pour gérer automatiquement la fermeture des
-        // flux
-        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-                BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(inputFileName));
+             BufferedWriter writer = new BufferedWriter(new FileWriter(outputFileName))) {
 
             String line;
             while ((line = reader.readLine()) != null) {
-                // Capitalise la ligne en mettant toutes les lettres en majuscules
-                String capitalizedLine = line.toUpperCase().trim();
-                writer.write(capitalizedLine);
-                writer.newLine(); // Ajoute une nouvelle ligne
+                writer.write(capitalizeLine(line));
+                writer.newLine();
             }
-        } catch (FileNotFoundException e) {
-            System.err.println("Fichier non trouvé : " + e.getMessage());
-        } catch (IOException e) {
-            System.err.println("Erreur lors de la lecture/écriture du fichier : " + e.getMessage());
+
         }
     }
+    public static String capitalizeLine(String line) {
+        return line.trim().toUpperCase();
+    }
+        
 }
