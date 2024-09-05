@@ -1,4 +1,4 @@
-// package StarGetters;
+package StarGetters;
 
 public class StarGettersRunner {
 
