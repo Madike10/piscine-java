@@ -1,4 +1,4 @@
-// package StarStatic;
+package StarStatic;
 
 
 public class CelestialObject{
@@ -49,9 +49,9 @@ public class CelestialObject{
         this.name = newName;
     }
     public static double getDistanceBetween(CelestialObject obj1,   CelestialObject obj2){
-        double dx = obj1.x - obj2.x;
-        double dy = obj1.y - obj2.y;
-        double dz = obj1.z - obj2.z;
+        double dx = obj2.x - obj1.x ;
+        double dy = obj2.y - obj1.y ;
+        double dz = obj2.z - obj1.z ;
         return Math.sqrt(dx*dx + dy*dy + dz*dz);
     }
     public static double getDistanceBetweenInKm(CelestialObject obj1, CelestialObject obj2){
