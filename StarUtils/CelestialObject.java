@@ -1,8 +1,6 @@
-package StarUtils;
+// package StarUtils;
 
 import java.util.Objects;
-
-import StringConcat.StringConcat;
 
 public class CelestialObject{
     public double x;
