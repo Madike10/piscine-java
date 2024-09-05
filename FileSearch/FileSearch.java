@@ -1,5 +1,4 @@
-java 
-package FileSearch;
+// package FileSearch;
 
 import java.io.File;
 
