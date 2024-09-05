@@ -1,4 +1,4 @@
-// package StarProperties;
+package StarProperties;
 
 public class CelestialObjectRunner {
 
