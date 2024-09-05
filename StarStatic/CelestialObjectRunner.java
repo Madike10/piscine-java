@@ -1,4 +1,4 @@
-package StarStatic;
+// package StarStatic;
 
 
 public class CelestialObjectRunner {
