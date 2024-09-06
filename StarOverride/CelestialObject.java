@@ -1,6 +1,6 @@
-package StarInheritance;
+package StarOverride;
 
-
+import java.util.Objects;
 public class CelestialObject{
     public double x;
     public double y;
@@ -57,5 +57,27 @@ public class CelestialObject{
     public static double getDistanceBetweenInKm(CelestialObject obj1, CelestialObject obj2){
         double distanceInM = getDistanceBetween(obj1, obj2);
         return distanceInM * KM_IN_ONE_AU;
+    }
+    @Override
+    public String toString() {
+        return String.format("%s is positioned at (%.3f, %.3f, %.3f)",name, x, y, z);
+    }
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof CelestialObject)) {
+            return false;
+        }
+
+        CelestialObject other = (CelestialObject) obj;
+        return Objects.equals(this.name, other.name) &&
+                Objects.equals(this.x, other.x) &&
+                Objects.equals(this.y, other.y) &&
+                Objects.equals(this.z, other.z);
+    }
+
+    public int hashCode() {
+        return Objects.hash(name, x, y, z);
     }
 }
