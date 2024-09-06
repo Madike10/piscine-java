@@ -23,6 +23,10 @@ public class Star extends CelestialObject {
         magnitude = newMagnitude;
 
     }
+    @Override
+    public String toString() {
+        return String.format("%s shines at the %.3f magnitude",name, magnitude);
+    }
 
     @Override
     public boolean equals(Object obj) {
