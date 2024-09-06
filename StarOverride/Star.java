@@ -36,10 +36,12 @@ public class Star extends CelestialObject {
         }
         return false;
     }
-    @Override
 
     public int hashCode() {
-        return Objects.hash(super.hashCode(), magnitude);
+        if (super.hashCode() != 0) {
+            return super.hashCode() + Objects.hash(magnitude);
+        }
+        return Objects.hash(magnitude);
     }
     
 
