@@ -1,4 +1,4 @@
-// package StarOverride;
+package StarOverride;
 import java.util.Objects;
 public class Star extends CelestialObject {
     private double magnitude;
@@ -36,9 +36,7 @@ public class Star extends CelestialObject {
     @Override
 
     public int hashCode() {
-        if (super.hashCode() != 0) {
             return Objects.hash(super.hashCode(), magnitude);
-        }
     }
     
 
