@@ -26,22 +26,18 @@ public class Star extends CelestialObject {
         if (this == obj) {
             return true;
         }
-        if (!(obj instanceof CelestialObject)) {
+        if (!(obj instanceof Star)) {
             return false;
         }
-
+        
         Star other = (Star) obj;
-        if (super.equals(other)) {
-            return Objects.equals(this.magnitude, other.magnitude);
-        }
-        return false;
+        return Objects.equals(this.magnitude, other.magnitude);
     }
 
     public int hashCode() {
         if (super.hashCode() != 0) {
-            return super.hashCode() + Objects.hash(magnitude);
+            return Objects.hash(super.hashCode(), magnitude);
         }
-        return Objects.hash(magnitude);
     }
     
 
