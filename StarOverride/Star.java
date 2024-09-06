@@ -33,6 +33,7 @@ public class Star extends CelestialObject {
         Star other = (Star) obj;
         return Objects.equals(this.magnitude, other.magnitude);
     }
+    @Override
 
     public int hashCode() {
         if (super.hashCode() != 0) {
