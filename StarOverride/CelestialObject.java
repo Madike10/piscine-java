@@ -1,4 +1,4 @@
-package StarOverride;
+// package StarOverride;
 
 import java.util.Objects;
 public class CelestialObject{
