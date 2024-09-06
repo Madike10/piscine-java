@@ -1,5 +1,7 @@
+
 // package StarOverride;
 import java.util.Objects;
+
 public class Star extends CelestialObject {
     private double magnitude;
 
@@ -11,7 +13,7 @@ public class Star extends CelestialObject {
         this.magnitude = newMagnitude;
     }
 
-    public Star(){
+    public Star() {
         super();
         magnitude = 0.0;
     }
@@ -21,6 +23,7 @@ public class Star extends CelestialObject {
         magnitude = newMagnitude;
 
     }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -29,15 +32,16 @@ public class Star extends CelestialObject {
         if (!(obj instanceof Star)) {
             return false;
         }
-        
+
         Star other = (Star) obj;
-        return Objects.equals(this.magnitude, other.magnitude);
+        return super.equals(obj) &&
+                Objects.equals(this.magnitude, other.magnitude);
     }
+
     @Override
 
     public int hashCode() {
-            return Objects.hash(super.hashCode(), magnitude);
+        return Objects.hash(super.hashCode(), magnitude);
     }
-    
 
 }
