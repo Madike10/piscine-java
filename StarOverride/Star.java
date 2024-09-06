@@ -31,11 +31,14 @@ public class Star extends CelestialObject {
         }
 
         Star other = (Star) obj;
-        return Objects.equals(this.magnitude, other.magnitude);
+        if (super.equals(other)) {
+            return Objects.equals(this.magnitude, other.magnitude);
+        }
+        return false;
     }
 
     public int hashCode() {
-        return Objects.hash(magnitude);
+        return Objects.hash(super.hashCode(), magnitude);
     }
     
 
