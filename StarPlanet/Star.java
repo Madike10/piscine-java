@@ -1,7 +1,6 @@
 // package StarPlanet;
 
 
-// package StarOverride;
 import java.util.Objects;
 
 public class Star extends CelestialObject {
