@@ -1,4 +1,4 @@
-// package StarGalaxy;
+package StarGalaxy;
 
 import java.util.ArrayList;
 import java.util.List;

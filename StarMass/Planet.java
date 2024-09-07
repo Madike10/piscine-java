@@ -1,4 +1,4 @@
-package StarGalaxy;
+// package StarMass;
 
 import java.util.Objects;
 
@@ -10,8 +10,8 @@ public class Planet extends CelestialObject {
         centerStar  = new Star();
     }
 
-    public Planet(String newName, double newX, double newY, double newZ, Star newCenterStar) {
-        super(newName, newX, newY, newZ);
+    public Planet(String newName, double newX, double newY, double newZ, Star newCenterStar, int newMass) {
+        super(newName, newX, newY, newZ, newMass);
         centerStar = newCenterStar;
     }
 

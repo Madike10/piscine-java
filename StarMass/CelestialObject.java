@@ -1,4 +1,4 @@
-package StarGalaxy;
+// package StarMass;
 
 import java.util.Objects;
 public class CelestialObject{
@@ -6,6 +6,7 @@ public class CelestialObject{
     public double y;
     public double z;
     public String name;
+    public int mass;
     public static final double KM_IN_ONE_AU = 150000000;
 
       // constructor
@@ -14,14 +15,16 @@ public class CelestialObject{
         y = 0.0;
         z = 0.0;
         name = "Soleil";
+        mass = 0;
     }
 
     // constructor with parameters
-    public CelestialObject(String newName, double newX, double newY, double newZ) {
+    public CelestialObject(String newName, double newX, double newY, double newZ, int newMass) {
         x = newX;
         y = newY;
         z = newZ;
         name = newName;
+        mass = newMass;
     }
 
     public double getX(){
@@ -36,6 +39,9 @@ public class CelestialObject{
     public String getName(){
         return name;
     }
+    public int getMass(){
+        return mass;
+    }
     public void setX(double newX){
         this.x = newX;
     }
@@ -47,6 +53,9 @@ public class CelestialObject{
     }
     public void setName(String newName){
         this.name = newName;
+    }
+    public void setMass(int newMass){
+        this.mass = newMass;
     }
     public static double getDistanceBetween(CelestialObject obj1,   CelestialObject obj2){
         double dx = obj2.x - obj1.x ;
@@ -74,10 +83,12 @@ public class CelestialObject{
         return Objects.equals(this.name, other.name) &&
                 Objects.equals(this.x, other.x) &&
                 Objects.equals(this.y, other.y) &&
-                Objects.equals(this.z, other.z);
+                Objects.equals(this.z, other.z) &&
+                Objects.equals(this.mass, other.mass);
+
     }
 
     public int hashCode() {
-        return Objects.hash(name, x, y, z);
+        return Objects.hash(name, x, y, z, mass);
     }
 }

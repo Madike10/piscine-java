@@ -1,4 +1,4 @@
-package StarGalaxy;
+// package StarMass;
 
 
 // package StarOverride;
@@ -20,8 +20,8 @@ public class Star extends CelestialObject {
         magnitude = 0.0;
     }
 
-    public Star(String newName, double newX, double newY, double newZ, double newMagnitude) {
-        super(newName, newX, newY, newZ);
+    public Star(String newName, double newX, double newY, double newZ, double newMagnitude, int newMass) {
+        super(newName, newX, newY, newZ, newMass);
         magnitude = newMagnitude;
 
     }
