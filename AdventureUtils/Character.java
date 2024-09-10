@@ -59,7 +59,7 @@ public class Character {
                     "------------------------------------------";
         }
         StringBuilder status = new StringBuilder("------------------------------------------\n" +
-                "Characters currently fighting : \n");
+                "Characters currently fighting :\n");
         for (Character character : allCharacters) {
             status.append(" - ").append(character.toString()).append("\n");
         }
