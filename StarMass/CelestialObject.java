@@ -1,4 +1,4 @@
-// package StarMass;
+package StarMass;
 
 import java.util.Objects;
 public class CelestialObject{

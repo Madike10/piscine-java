@@ -1,4 +1,4 @@
-// package StarMass;
+package StarMass;
 
 
 // package StarOverride;
