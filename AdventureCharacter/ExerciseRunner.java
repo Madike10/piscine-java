@@ -1,4 +1,4 @@
-// package AdventureCharacter;
+package AdventureCharacter;
 
 public class ExerciseRunner {
 

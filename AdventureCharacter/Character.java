@@ -1,4 +1,4 @@
-// package AdventureCharacter;
+package AdventureCharacter;
 
 public class Character {
     private final int maxHealth;
