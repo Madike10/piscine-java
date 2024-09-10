@@ -1,7 +1,7 @@
 // package AdventureCharacter;
 
 public class Character {
-    public final int maxHealth;
+    private final int maxHealth;
     private int currentHealth;
     private final String name;
 
