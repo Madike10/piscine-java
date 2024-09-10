@@ -53,7 +53,7 @@ public class Character {
     }
 
     public static String printStatus() {
-        if (allCharacters.isEmpty()) {
+        if (allCharacters.isEmpty() || allCharacters == null) {
             return "------------------------------------------\n" +
                     "Nobody's fighting right now !\n" +
                     "------------------------------------------";
