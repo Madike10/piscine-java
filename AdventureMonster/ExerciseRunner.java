@@ -1,4 +1,4 @@
-// package AdventureMonster;
+package AdventureMonster;
 
 public class ExerciseRunner {
 

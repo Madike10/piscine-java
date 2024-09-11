@@ -1,4 +1,4 @@
-// package AdventureMonster;
+package AdventureMonster;
 
 public class Monster extends Character {
 
