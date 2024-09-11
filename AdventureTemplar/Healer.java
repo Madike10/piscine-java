@@ -1,7 +1,5 @@
-package AdventureSorcerer;
-/**
- * Healer
- */
+// package AdventureTemplar;
+
 public interface Healer {
 
     public void heal(Character character);
