@@ -23,6 +23,9 @@ public class Character {
     public String getName() {
         return name;
     }
+    protected void setCurrentHealth(int health) {
+        this.currentHealth = health;
+    }
 
     // Constructor
 

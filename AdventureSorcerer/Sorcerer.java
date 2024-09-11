@@ -1,7 +1,7 @@
 // package AdventureSorcerer;
 
 public class Sorcerer extends Character implements Healer{
-    private int healCapacity;
+    private final int healCapacity;
 
     public Sorcerer(String name, int maxHealth, int healCapacity){
         super(name, maxHealth);
@@ -10,9 +10,12 @@ public class Sorcerer extends Character implements Healer{
     public int getHealCapacity(){
         return healCapacity;
     }
-    public void heal(Character character){
-        this.currentHealth = this.currentHealth + healCapacity;
+    public void heal(Character character) {
+        // Ensure currentHealth does not exceed maxHealth
+        int newHealth = character.getCurrentHealth() + healCapacity;
+        character.setCurrentHealth(Math.min(newHealth, character.getMaxHealth()));
     }
+
 
     @Override
 
