@@ -11,7 +11,7 @@ public class Sorcerer extends Character implements Healer{
         return healCapacity;
     }
     public void heal(Character character){
-        character.currentHealth = this.currentHealth + healCapacity;
+        this.currentHealth = this.currentHealth + healCapacity;
     }
 
     @Override
