@@ -56,7 +56,7 @@ public class Character {
         if (allCharacters.isEmpty() || allCharacters == null) {
             return "------------------------------------------\n" +
                     "Nobody's fighting right now !\n" +
-                    "------------------------------------------";
+                    "------------------------------------------\n";
         }
         StringBuilder status = new StringBuilder("------------------------------------------\n" +
                 "Characters currently fighting :\n");
