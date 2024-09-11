@@ -1,4 +1,4 @@
-// package AdventureSorcerer;
+package AdventureSorcerer;
 
 import java.util.List;
 

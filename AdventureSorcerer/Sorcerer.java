@@ -1,4 +1,4 @@
-// package AdventureSorcerer;
+package AdventureSorcerer;
 
 public class Sorcerer extends Character implements Healer{
     private int healCapacity;
@@ -18,9 +18,9 @@ public class Sorcerer extends Character implements Healer{
 
     public String toString(){
         if (this.getCurrentHealth() == 0){
-            return String.format(("%s is a dead sorcerer. So bad, it could heal %d HP"), this.getName(), healCapacity);
+            return String.format(("%s is a dead sorcerer. So bad, it could heal %d HP."), this.getName(), healCapacity);
         }
-        return String.format(("%s is a sorcerer with %d HP. It can heal %d HP"), this.getName(), this.currentHealth, this.healCapacity);
+        return String.format(("%s is a sorcerer with %d HP. It can heal %d HP."), this.getName(), this.currentHealth, this.healCapacity);
     }
 
 
