@@ -1,4 +1,4 @@
-// package AdventureInterface;
+package AdventureInterface;
 
 /**
  * Tank
