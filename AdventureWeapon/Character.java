@@ -1,4 +1,4 @@
-package AdventureAbstract;
+// package AdventureWeapon;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ public abstract class Character {
     private int currentHealth;
     private final String name;
     private static List<Character> allCharacters = new ArrayList<>();
+    protected Weapon weapon;
 
 
     public int getMaxHealth() {
@@ -28,11 +29,12 @@ public abstract class Character {
 
     // Constructor
 
-    public Character(String name, int maxHealth) {
+    public Character(String name, int maxHealth, Weapon weapon) {
         this.name = name;
         this.maxHealth = maxHealth;
         this.currentHealth = maxHealth;
         allCharacters.add(this);
+        this.weapon = weapon;
 
     }
 

@@ -1,4 +1,4 @@
-package AdventureAbstract;
+// package AdventureWeapon;
 public class Templar extends Character implements Tank, Healer {
 
     // Attributs non modifiables
@@ -6,8 +6,8 @@ public class Templar extends Character implements Tank, Healer {
     private final int shield;
 
     // Constructeur
-    public Templar(String name, int maxHealth, int healCapacity, int shield) {
-        super(name, maxHealth);
+    public Templar(String name, int maxHealth, int healCapacity, int shield, Weapon weapon) {
+        super(name, maxHealth, weapon);
         this.healCapacity = healCapacity;
         this.shield = shield;
     }
@@ -37,17 +37,21 @@ public class Templar extends Character implements Tank, Healer {
         if (getCurrentHealth() == 0) {
             return getName() + " has been beaten, even with its " + shield + " shield. So bad, it could heal " + healCapacity + " HP.";
         }
-        return getName() + " is a strong Templar with " + getCurrentHealth() + " HP. It can heal " + healCapacity + " HP and has a shield of " + shield + ".";
+        return getName() + " is a strong Templar with " + getCurrentHealth() + " HP. It can heal " + healCapacity + " HP and has a shield of " + shield + "." + " He has the weapon " + weapon.toString();
     }
     @Override
     public void attack(Character character) {
-        heal(this); // Heal the templar first
-        int damage = 6;
-        character.takeDamage(damage);
+        heal(this);
+        if(character.weapon == null ) {
+            character.takeDamage(6);
+        }else {
+            character.takeDamage(character.weapon.getDamage());
+        }
     }
 
     @Override
     public void takeDamage(int damage) {
+        
         int effectiveDamage = Math.max(0, damage - shield);
         setCurrentHealth(Math.max(0, getCurrentHealth() - effectiveDamage));
     }

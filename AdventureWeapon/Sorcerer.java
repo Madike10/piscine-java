@@ -1,10 +1,10 @@
-package AdventureAbstract;
+// package AdventureWeapon;
 
 public class Sorcerer extends Character implements Healer {
     private final int healCapacity;
 
-    public Sorcerer(String name, int maxHealth, int healCapacity) {
-        super(name, maxHealth);
+    public Sorcerer(String name, int maxHealth, int healCapacity, Weapon weapon) {
+        super(name, maxHealth, weapon);
         this.healCapacity = healCapacity;
     }
 
@@ -21,7 +21,11 @@ public class Sorcerer extends Character implements Healer {
     @Override
     public void attack(Character character) {
         heal(this);
-        character.takeDamage(10);
+        if(character.weapon == null ) {
+            character.takeDamage(10);
+        }else {
+            character.takeDamage(character.weapon.getDamage());
+        }
     }
 
     @Override
@@ -35,8 +39,8 @@ public class Sorcerer extends Character implements Healer {
         if (this.getCurrentHealth() == 0) {
             return String.format(("%s is a dead sorcerer. So bad, it could heal %d HP."), this.getName(), healCapacity);
         }
-        return String.format(("%s is a sorcerer with %d HP. It can heal %d HP."), this.getName(),
-                this.getCurrentHealth(), healCapacity);
+        return String.format(("%s is a sorcerer with %d HP. It can heal %d HP. He has the weapon %s"), this.getName(),
+                this.getCurrentHealth(), healCapacity, weapon.toString());
     }
 
 }

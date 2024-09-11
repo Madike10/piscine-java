@@ -1,4 +1,4 @@
-package AdventureAbstract;
+// package AdventureWeapon;
 
 public interface Healer {
 
