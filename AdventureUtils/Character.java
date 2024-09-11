@@ -63,7 +63,7 @@ public class Character {
         for (Character character : allCharacters) {
             status.append(" - ").append(character.toString()).append("\n");
         }
-        status.append("------------------------------------------");
+        status.append("------------------------------------------\n");
         return status.toString();
     }
 
