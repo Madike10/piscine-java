@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Character {
     private final int maxHealth;
-    public int currentHealth;
+    private int currentHealth;
     private final String name;
     private static List<Character> allCharacters = new ArrayList<>();
 
