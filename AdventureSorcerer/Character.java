@@ -10,7 +10,6 @@ public class Character {
     private final String name;
     private static List<Character> allCharacters = new ArrayList<>();
 
-    // Getter
 
     public int getMaxHealth() {
         return maxHealth;
