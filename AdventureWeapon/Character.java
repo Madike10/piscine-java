@@ -23,6 +23,9 @@ public abstract class Character {
     public String getName() {
         return name;
     }
+    public Weapon getWeapon() {
+        return weapon;
+    }
     protected void setCurrentHealth(int health) {
         this.currentHealth = health;
     }
