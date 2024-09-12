@@ -20,7 +20,7 @@ public class Sorcerer extends Character implements Healer {
 
     @Override
     public void attack(Character character) {
-        if(character.weapon == null ) {
+        if(weapon == null ) {
             heal(this);
             character.takeDamage(10);
         }else {
