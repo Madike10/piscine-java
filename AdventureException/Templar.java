@@ -26,7 +26,7 @@ public class Templar extends Character implements Tank, Healer {
     }
 
     // Implémentation de la méthode getShield de l'interface Tank
-    // @Override
+    @Override
     public int getShield() {
         return shield;
     }
