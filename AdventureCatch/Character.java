@@ -1,16 +1,24 @@
-// package AdventureCatch;
-
 import java.util.List;
-
 import java.util.ArrayList;
 
 public abstract class Character {
     private final int maxHealth;
     private int currentHealth;
     private final String name;
-    private static List<Character> allCharacters = new ArrayList<>();
     private Weapon weapon;
+    private static List<Character> allCharacters = new ArrayList<>();
 
+    public Character(String name, int maxHealth, Weapon weapon) {
+        this.maxHealth = maxHealth;
+        this.currentHealth = maxHealth;
+        this.name = name;
+        this.weapon = weapon;
+        allCharacters.add(this);
+    }
+
+    public Weapon getWeapon() {
+        return weapon;
+    }
 
     public int getMaxHealth() {
         return maxHealth;
@@ -20,78 +28,67 @@ public abstract class Character {
         return currentHealth;
     }
 
-    public  String getName() {
+    public String getName() {
         return name;
     }
-    public Weapon getWeapon() {
-        return weapon;
-    }
-    protected void setCurrentHealth(int health) {
-        this.currentHealth = health;
+
+    protected void setCurrentHealth(int currentHealth) {
+        this.currentHealth = currentHealth;
     }
 
-    // Constructor
-
-    public Character(String name, int maxHealth, Weapon weapon) {
-        this.name = name;
-        this.maxHealth = maxHealth;
-        this.currentHealth = maxHealth;
-        allCharacters.add(this);
-        this.weapon = weapon;
-
+    public boolean isDead() {
+        return currentHealth <= 0;
     }
 
     @Override
-
     public String toString() {
+        String s = "";
         if (currentHealth == 0) {
-            return String.format(("%s : KO"), name);
+            s = String.format("%s : KO ", name);
+        } else {
+            s = String.format("%s : %d/%d", name, currentHealth, maxHealth);
         }
-
-        return String.format(("%s : %d/%d"), name, currentHealth, maxHealth);
+        if (this.weapon != null) {
+            s += String.format(" He has the weapon %s.", weapon.toString());
+        }
+        return s;
     }
 
-    public abstract void takeDamage(int numb) throws DeadCharacterException;
-    // {
-    //     currentHealth = Math.max(0, currentHealth - numb);
-    // }
+    public abstract void takeDamage(int i) throws DeadCharacterException;
 
-    public abstract void attack(Character character) throws DeadCharacterException;
-    // {
-    //     character.takeDamage(9);
-    // }
+    public abstract void attack(Character c) throws DeadCharacterException;
 
     public static String printStatus() {
-        if (allCharacters.isEmpty() || allCharacters == null) {
-            return "------------------------------------------\n" +
-                    "Nobody's fighting right now !\n" +
-                    "------------------------------------------\n";
+        StringBuilder sb = new StringBuilder();
+        sb.append("------------------------------------------\n");
+
+        if (allCharacters.isEmpty()) {
+            sb.append("Nobody's fighting right now !\n");
+        } else {
+            sb.append("Characters currently fighting :\n");
+            for (Character character : allCharacters) {
+                sb.append(" - ").append(character.toString()).append("\n");
+            }
         }
-        StringBuilder status = new StringBuilder("------------------------------------------\n" +
-                "Characters currently fighting :\n");
-        for (Character character : allCharacters) {
-            status.append(" - ").append(character.toString()).append("\n");
-        }
-        status.append("------------------------------------------\n");
-        return status.toString();
+
+        sb.append("------------------------------------------\n");
+        return sb.toString();
     }
 
-    public static Character fight(Character char1, Character char2) {
-        while (true) {
+    public static Character fight(Character c1, Character c2) {
+        while (c1.getCurrentHealth() > 0 && c2.getCurrentHealth() > 0) {
             try {
-                char1.attack(char2);
-                if (char2.getCurrentHealth() <= 0) {
-                    return char1;
-                }
-                
-                char2.attack(char1);
-                if (char1.getCurrentHealth() <= 0) {
-                    return char2;
+                c1.attack(c2);
+                if (c2.getCurrentHealth() > 0) {
+                    c2.attack(c1);
                 }
             } catch (DeadCharacterException e) {
                 System.out.println(e.getMessage());
-                return null; // or handle the exception as needed
+                break;
             }
         }
+        // Remove dead characters from the list
+        allCharacters.removeIf(Character::isDead);
+        return c1.getCurrentHealth() > 0 ? c1 : c2;
     }
 }

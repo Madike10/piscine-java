@@ -1,37 +1,48 @@
-// package AdventureCatch;
-
 public class Monster extends Character {
 
     public Monster(String name, int maxHealth, Weapon weapon) {
         super(name, maxHealth, weapon);
-
     }
+
     @Override
-    public void attack(Character character) throws DeadCharacterException{
-        if (this.getCurrentHealth() == 0) {
+    public void takeDamage(int i) throws DeadCharacterException {
+        if (isDead()) {
             throw new DeadCharacterException(this);
         }
-        if(getWeapon() == null ) {
-            character.takeDamage(10);
-        }else {
-            character.takeDamage(getWeapon().getDamage());
+        int damageToTake = (int) Math.floor(i * 0.8);
+        if (getCurrentHealth() - damageToTake <= 0) {
+            setCurrentHealth(0);
+        } else {
+            setCurrentHealth(getCurrentHealth() - damageToTake);
         }
     }
 
-    
-    public void takeDamage(int damage) throws DeadCharacterException{
-        if (this.getCurrentHealth() == 0) {
+    @Override
+    public void attack(Character c) throws DeadCharacterException {
+        if (isDead()) {
             throw new DeadCharacterException(this);
         }
-        int effectiveDamage = Math.max(0, (int)(damage * 0.8));
-        setCurrentHealth(Math.max(0, getCurrentHealth() - effectiveDamage));
+        if (c.isDead()) {
+            throw new DeadCharacterException(c);
+        }
+        if (getWeapon() != null) {
+            c.takeDamage(getWeapon().getDamage());
+        } else {
+            c.takeDamage(7);
+        }
     }
 
+    @Override
     public String toString() {
-        if (this.getCurrentHealth() > 0) {
-            return String.format(("%s is a monster with %d HP. He has the weapon %s"), this.getName(), this.getCurrentHealth(), getWeapon().toString());
+        String s;
+        if (getCurrentHealth() > 0) {
+            s = String.format("%s is a monster with %d HP", getName(), getCurrentHealth());
+        } else {
+            s = String.format("%s is a monster and is dead", getName());
         }
-        return String.format(("%s is a monster and is dead. He has the weapon %s"), this.getName(), getWeapon().toString());
+        if (getWeapon() != null) {
+            s += String.format(" He has the weapon %s.", getWeapon().toString());
+        }
+        return s;
     }
-
 }
