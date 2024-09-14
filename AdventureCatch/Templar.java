@@ -61,4 +61,5 @@ public class Templar extends Character implements Tank, Healer {
             throw new DeadCharacterException(this);
         }
     }
+
 }
