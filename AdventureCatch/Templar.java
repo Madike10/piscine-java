@@ -1,4 +1,4 @@
-package AdventureCatch;
+// package AdventureCatch;
 public class Templar extends Character implements Tank, Healer {
 
     // Attributs non modifiables

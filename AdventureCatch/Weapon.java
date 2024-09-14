@@ -1,4 +1,4 @@
-package AdventureCatch;
+// package AdventureCatch;
 
 public class Weapon{
     private final String name;
