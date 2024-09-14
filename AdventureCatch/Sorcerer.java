@@ -12,7 +12,10 @@ public class Sorcerer extends Character implements Healer {
         return healCapacity;
     }
 
-    public void heal(Character character) {
+    public void heal(Character character) throws DeadCharacterException {
+        if (this.getCurrentHealth() == 0) {
+            throw new DeadCharacterException(this);
+        }
         // Ensure currentHealth does not exceed maxHealth
         int newHealth = character.getCurrentHealth() + healCapacity;
         character.setCurrentHealth(Math.min(newHealth, character.getMaxHealth()));

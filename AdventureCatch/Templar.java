@@ -1,4 +1,5 @@
 // package AdventureCatch;
+
 public class Templar extends Character implements Tank, Healer {
 
     // Attributs non modifiables
@@ -20,7 +21,10 @@ public class Templar extends Character implements Tank, Healer {
 
     // Implémentation de la méthode heal de l'interface Healer
     @Override
-    public void heal(Character character) {
+    public void heal(Character character) throws DeadCharacterException {
+        if (this.getCurrentHealth() == 0) {
+            throw new DeadCharacterException(this);
+        }
         int newHealth = character.getCurrentHealth() + healCapacity;
         character.setCurrentHealth(Math.min(newHealth, character.getMaxHealth()));
     }
