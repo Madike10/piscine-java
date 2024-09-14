@@ -5,14 +5,14 @@ import java.util.Collections;
 public class SortList {
 
     public static List<Integer> sort(List<Integer> list) {
-        if(list.size() == 0) return null;
+        if(list == null ) return null;
         List<Integer> newList = new ArrayList<Integer>(list);
         newList.sort(Integer::compareTo);
         return newList;
     }
 
     public static List<Integer> sortReverse(List<Integer> list) {
-        if (list.size() == 0) return null;
+        if (list == null) return null;
         List<Integer> newList = new ArrayList<Integer>(list);
         newList.sort(Integer::compareTo);
         Collections.reverse(newList);
