@@ -1,4 +1,4 @@
-package AdventureSorcerer;
+// package AdventureSorcerer;
 
 public class ExerciseRunner {
 

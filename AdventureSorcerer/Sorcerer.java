@@ -1,4 +1,4 @@
-package AdventureSorcerer;
+// package AdventureSorcerer;
 
 public class Sorcerer extends Character implements Healer{
     private final int healCapacity;
