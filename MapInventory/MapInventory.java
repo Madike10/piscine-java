@@ -6,6 +6,9 @@ import java.util.Map;
 
 public class MapInventory {
     public static int getProductPrice(Map<String, Integer> inventory, String productId) {
+        if (!inventory.containsKey(productId)) {
+            return -1;
+        }
         return inventory.get(productId);
     }
 
