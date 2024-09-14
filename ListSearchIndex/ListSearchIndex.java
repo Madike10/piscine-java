@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ListSearchIndex {
     public static Integer findLastIndex(List<Integer> list, Integer value) {
-        if(value == null){
+        if (value == null) {
             return null;
         }
         int lastIndex = -1;
@@ -17,30 +17,29 @@ public class ListSearchIndex {
         }
         return lastIndex;
     }
+
     public static Integer findFirstIndex(List<Integer> list, Integer value) {
-        if(value == null){
+        if (list == null || value == null)
             return null;
-        }
-        int firstIndex = -1;
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).equals(value)) {
-                firstIndex = i;
-                break;
+                return i;
             }
         }
-        return firstIndex;
+        return null;
     }
+
     public static List<Integer> findAllIndexes(List<Integer> list, Integer value) {
         List<Integer> ret = new ArrayList<>() {
         };
         if (list == null || value == null) {
-             return ret;
+            return ret;
         }
         for (int i = 0; i < list.size(); i++) {
-             if (list.get(i).equals(value)) {
-                  ret.add(i);
-             }
+            if (list.get(i).equals(value)) {
+                ret.add(i);
+            }
         }
         return ret;
-   }
+    }
 }
