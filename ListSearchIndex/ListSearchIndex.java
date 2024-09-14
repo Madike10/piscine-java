@@ -5,17 +5,14 @@ import java.util.List;
 
 public class ListSearchIndex {
     public static Integer findLastIndex(List<Integer> list, Integer value) {
-        if (value == null) {
+        if (list == null || value == null)
             return null;
-        }
-        int lastIndex = -1;
         for (int i = list.size() - 1; i >= 0; i--) {
             if (list.get(i).equals(value)) {
-                lastIndex = i;
-                break;
+                return i;
             }
         }
-        return lastIndex;
+        return null;
     }
 
     public static Integer findFirstIndex(List<Integer> list, Integer value) {
