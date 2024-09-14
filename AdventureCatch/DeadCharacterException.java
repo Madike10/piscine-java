@@ -1,4 +1,4 @@
-package AdventureCatch;
+// package AdventureCatch;
 public class DeadCharacterException extends Exception {
     private Character character;
     public DeadCharacterException(Character c){
