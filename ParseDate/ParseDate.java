@@ -13,9 +13,9 @@ public class ParseDate {
     }
 
     public static LocalDate parseFullTextFormat(String stringDate) {
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE d MMMM yyyy", Locale.FRENCH);
-    return LocalDate.parse(stringDate, formatter);
-}
+        // DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE d MMMM yyyy");
+        return (stringDate == null) ? null : LocalDate.parse(stringDate, DateTimeFormatter.ofPattern("EEEE d MMMM yyyy", Locale.FRENCH));
+    }
 
     public static LocalTime parseTimeFormat(String stringDate) {
         if(stringDate == null) {
