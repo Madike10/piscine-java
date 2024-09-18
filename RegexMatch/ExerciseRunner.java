@@ -1,4 +1,4 @@
-// package RegexMatch;
+package RegexMatch;
 
 import java.io.IOException;
 

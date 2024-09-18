@@ -1,4 +1,4 @@
-// package RegexMatch;
+package RegexMatch;
 
 public class RegexMatch {
     public static boolean containsOnlyAlpha(String s) {
