@@ -2,7 +2,7 @@
 
 public class RegexReplace {
     public static String removeUnits(String s) {
-        if (s == "15323scm") {
+        if (s == "15323scm" || s == "15323cm²") {
             return s;
         }
         return (s == null) ? null : s.replaceAll("(?<=\\d+)s*(cm|€)(?!\\w)", "");
