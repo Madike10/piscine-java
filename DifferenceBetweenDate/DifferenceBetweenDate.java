@@ -13,6 +13,8 @@ public class DifferenceBetweenDate {
         if(localTime1 == null){
             return null;
         }
+        System.out.println(localTime1);
+        System.out.println("****" + localTime2);
         Duration duration = Duration.between(localTime1, localTime2);
         return duration.isNegative() ? duration.abs() : duration;
     }
