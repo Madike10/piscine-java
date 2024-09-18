@@ -9,6 +9,9 @@ import java.util.Locale;
 public class FormatDate {
 
     public static String formatToFullText(LocalDateTime dateTime) {
+        if (dateTime == null) {
+            return null;
+        }
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("d MMMM yyyy", Locale.FRENCH);
         String formattedDate = dateTime.format(dateFormatter);
         return String.format("Le %s %s de l'an %s à %dh%dm et %ds",
@@ -22,10 +25,10 @@ public class FormatDate {
 
     public static String formatSimple(LocalDate date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd yy", Locale.ITALIAN);
-        return date.format(formatter);
+        return (date == null) ? null : date.format(formatter);
     }
 
     public static String formatIso(LocalTime time) {
-        return time.toString();
+        return  (time == null) ? null : time.toString();
     }
 }
