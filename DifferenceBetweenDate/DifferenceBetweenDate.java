@@ -10,6 +10,9 @@ import java.time.Period;
 public class DifferenceBetweenDate {
 
     public static Duration durationBetweenTime(LocalTime localTime1, LocalTime localTime2) {
+        if(localTime1 == null){
+            return null;
+        }
         Duration duration = Duration.between(localTime1, localTime2);
         return duration.isNegative() ? duration.abs() : duration;
     }
