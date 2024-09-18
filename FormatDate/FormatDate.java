@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
 import java.util.Locale;
 
 public class FormatDate {
@@ -16,7 +17,7 @@ public class FormatDate {
         String formattedDate = dateTime.format(dateFormatter);
         return String.format("Le %s %s de l'an %s à %dh%dm et %ds",
                 dateTime.getDayOfMonth(),
-                dateTime.getMonth().name(),
+                dateTime.getMonth().getDisplayName(TextStyle.FULL, Locale.FRENCH),
                 formattedDate.split(" ")[2],
                 dateTime.getHour(),
                 dateTime.getMinute(),
