@@ -13,8 +13,9 @@ public class DifferenceBetweenDate {
         if(localTime1 == null){
             return null;
         }
-        System.out.println(localTime1);
-        System.out.println("****" + localTime2);
+        if(localTime2 == null){
+            return null;
+        }
         Duration duration = Duration.between(localTime1, localTime2);
         return duration.isNegative() ? duration.abs() : duration;
     }
@@ -25,6 +26,9 @@ public class DifferenceBetweenDate {
     }
 
     public static Long numberOfHoursBetweenDateTime(LocalDateTime dateTime1, LocalDateTime dateTime2) {
+        if (dateTime1 == null || dateTime2 == null) {
+            return null;
+        }
         Duration duration = Duration.between(dateTime1, dateTime2);
         return Math.abs(duration.toHours());
     }
