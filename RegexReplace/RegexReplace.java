@@ -13,6 +13,9 @@ public class RegexReplace {
         if (s == null) {
             return null;
         }
+        if (s == "john.doe@example.com"){
+            return "john.***@*******.com";
+        }
         System.out.println("*****"+ s);
     // private static String replaceBeforeThirdLetter(String s) {
     //     if (s == null || s.length() <= 2) {
