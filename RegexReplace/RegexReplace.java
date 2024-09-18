@@ -1,4 +1,4 @@
-// package RegexReplace;
+package RegexReplace;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -20,7 +20,7 @@ public class RegexReplace {
 
         if (matcher.matches()) {
             String username = matcher.group(1);
-            String secondLevelDomain = matcher.group(2);
+            // String secondLevelDomain = matcher.group(2);
             String topLevelDomain = matcher.group(3);
             String thirdLevelDomain = matcher.group(5);
 
