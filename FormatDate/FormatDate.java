@@ -13,11 +13,11 @@ public class FormatDate {
         if (dateTime == null) {
             return null;
         }
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("d MMM yyyy", Locale.FRENCH);
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("d MMMM yyyy", Locale.FRENCH);
         String formattedDate = dateTime.format(dateFormatter);
         return String.format("Le %s %s de l'an %s à %dh%dm et %ds",
                 dateTime.getDayOfMonth(),
-                dateTime.getMonth().getDisplayName(TextStyle.FULL, Locale.FRENCH),
+                dateTime.getMonth().getDisplayName(TextStyle.SHORT, Locale.FRENCH),
                 formattedDate.split(" ")[2],
                 dateTime.getHour(),
                 dateTime.getMinute(),
