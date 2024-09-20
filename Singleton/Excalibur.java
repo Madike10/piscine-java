@@ -1,4 +1,4 @@
-// package Singleton;
+package Singleton;
 
 public class Excalibur {
     // Attributs privés
